@@ -1,37 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="6304015-PengantarBiayaRawat" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="319fca59-5807-4640-bc14-a8536cd12888">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIMRSGOS2-DEV"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="6304015-PengantarBiayaRawat" pageWidth="620" pageHeight="450" orientation="Landscape" columnWidth="580" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="319fca59-5807-4640-bc14-a8536cd12888">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIMRSGOS252"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<parameter name="NORM" class="java.lang.Integer"/>
+	<parameter name="PNOPEN" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[CALL master.getSJPMM_rawat_inap( $P{NORM} )]]>
+		<![CDATA[CALL pendaftaran.CetakPengantarBiayaPerawatan( $P{PNOPEN} )]]>
 	</queryString>
+	<field name="NAMAINSTANSI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NAMA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NAMAINSTANSI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pk"/>
+	</field>
 	<field name="NORM" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="NORM"/>
 		<property name="com.jaspersoft.studio.field.label" value="NORM"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
 		<fieldDescription><![CDATA[Nomor Rekam Medis]]></fieldDescription>
 	</field>
-	<field name="NAMA" class="java.lang.String">
+	<field name="DESKRIPSI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESKRIPSI"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESKRIPSI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ruangan"/>
+	</field>
+	<field name="NamaPasien" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="NAMA"/>
-		<property name="com.jaspersoft.studio.field.label" value="NAMA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NamaPasien"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
 	</field>
-	<field name="TANGGAL_LAHIR" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="TANGGAL_LAHIR"/>
-		<property name="com.jaspersoft.studio.field.label" value="TANGGAL_LAHIR"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	<field name="JenisKelamin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="JenisKelamin"/>
+		<property name="com.jaspersoft.studio.field.label" value="JenisKelamin"/>
 	</field>
-	<field name="JENIS_KELAMIN" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="JENIS_KELAMIN"/>
-		<property name="com.jaspersoft.studio.field.label" value="JENIS_KELAMIN"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	<field name="TglLahir" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TglLahir"/>
+		<property name="com.jaspersoft.studio.field.label" value="TglLahir"/>
 	</field>
-	<field name="ALAMAT" class="java.lang.String">
+	<field name="Alamat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="ALAMAT"/>
-		<property name="com.jaspersoft.studio.field.label" value="ALAMAT"/>
+		<property name="com.jaspersoft.studio.field.label" value="Alamat"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="TglKunjungan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TglKunjungan"/>
+		<property name="com.jaspersoft.studio.field.label" value="TglKunjungan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kunjungan"/>
+	</field>
+	<field name="NamaPetugas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NAMA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NamaPetugas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pegawai"/>
+	</field>
+	<field name="NIPPetugas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NIP"/>
+		<property name="com.jaspersoft.studio.field.label" value="NIPPetugas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pegawai"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -51,7 +74,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="225" splitType="Stretch">
+		<band height="232" splitType="Stretch">
 			<staticText>
 				<reportElement x="70" y="0" width="110" height="20" uuid="d2d4517b-26fd-443a-8f30-d74b3aecdbe0"/>
 				<box>
@@ -62,7 +85,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement verticalAlignment="Bottom">
-					<font fontName="Serif"/>
+					<font fontName="Serif" size="10"/>
 				</textElement>
 				<text><![CDATA[Pengantar Biaya Perawatan]]></text>
 			</staticText>
@@ -297,7 +320,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<paragraph leftIndent="3"/>
 				</textElement>
-				<text><![CDATA[Assesmen]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="120" y="168" width="190" height="14" uuid="60d707e3-f70c-438b-b68e-cb59e6c0c6df">
@@ -312,7 +335,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<paragraph leftIndent="3"/>
 				</textElement>
-				<text><![CDATA[Farmasi]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="120" y="182" width="190" height="14" uuid="2f122948-53ed-424b-af79-c4948d0393f9">
@@ -327,7 +350,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<paragraph leftIndent="3"/>
 				</textElement>
-				<text><![CDATA[Konseling Adiksi Napza]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="120" y="196" width="190" height="14" uuid="a4b0a1a4-b8dc-411c-a674-3b62d72f131c">
@@ -342,7 +365,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<paragraph leftIndent="3"/>
 				</textElement>
-				<text><![CDATA[Laboratorium]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="310" y="140" width="180" height="14" uuid="fa152b04-401f-4805-bcc9-681134467c3c">
@@ -371,7 +394,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<paragraph leftIndent="3" rightIndent="3"/>
 				</textElement>
-				<text><![CDATA[Rp 100.000,00]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="310" y="168" width="180" height="14" uuid="d0fb269d-63e1-4ca6-8048-2b25c6b7c179">
@@ -387,7 +410,7 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<paragraph leftIndent="3" rightIndent="3"/>
 				</textElement>
-				<text><![CDATA[Rp 298.260,00]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="310" y="182" width="180" height="14" uuid="679f8c5d-18bb-4f0b-8482-ab5927b651c2">
@@ -448,64 +471,74 @@ JL. Gubernur Syarkawi Km 3.9 Kab. Banjar]]></text>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<paragraph leftIndent="3" rightIndent="3"/>
 				</textElement>
-				<text><![CDATA[Rp 398.260,00]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="200" y="33" width="140" height="13" uuid="46e6486b-07d5-4229-9905-774be43a2bfe">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c171c255-09fc-4fb9-ab55-2debb6957bbd"/>
+				<reportElement x="200" y="20" width="189" height="13" uuid="69315ace-31c2-45d7-8eca-6dfedb10f6be">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{DESKRIPSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="32" width="189" height="13" uuid="4a2dd77f-e0a8-4579-ac92-4e6ffcc97720">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="46" width="140" height="13" uuid="d0dbdab8-4a0b-450c-a21d-75f6bf8f0f22">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e0cbbdf-b6fc-494c-a04a-1a11eef1d272"/>
+				<reportElement x="200" y="46" width="189" height="13" uuid="fa2679fe-f5b2-49bc-9c74-c12599c0d191">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{NAMA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{NamaPasien}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="59" width="140" height="13" uuid="aef3e0e2-22d6-4f1a-bbaf-c0fb51e423b2">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71d4191-cf92-4750-b2bf-5ff62ba9feca"/>
+				<reportElement x="200" y="59" width="100" height="13" uuid="dbf96679-db7b-4ec6-a76f-d0a86ed7692e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{TANGGAL_LAHIR}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TglLahir}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="72" width="140" height="13" uuid="f684b015-7829-49a7-88d6-1d6e47633d59">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6286b884-6317-4fb4-a304-c03b710a1c3a"/>
+				<reportElement x="200" y="72" width="100" height="13" uuid="b656e988-10c4-43f5-8f58-500ba55407b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{JENIS_KELAMIN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{JenisKelamin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="85" width="140" height="13" uuid="f7d1847b-9f1c-4a3b-8830-efc8d40a3250">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b935aeb-8b71-449d-8dde-cf31f74834d1"/>
+				<reportElement x="200" y="85" width="189" height="13" uuid="ba0550c6-3368-4797-9e8d-325226568dc7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{ALAMAT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Alamat}]]></textFieldExpression>
 			</textField>
-			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="200" y="98" width="140" height="13" uuid="c3c80ece-ca78-47d1-804c-310efd6fc248"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			<textField>
+				<reportElement x="200" y="98" width="100" height="13" uuid="66aec68c-1660-458b-865c-0bf2766082e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TglKunjungan}]]></textFieldExpression>
 			</textField>
-			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="200" y="110" width="140" height="13" uuid="90ed44da-e5ea-474d-b34a-43c4f5229af5"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			<textField>
+				<reportElement x="200" y="111" width="100" height="13" uuid="c17db52a-882a-4944-8e45-8866091d627e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e0e30dc6-1545-406f-ae26-b50a2cde03d3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TglKunjungan}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="144" splitType="Stretch">
+		<band height="126" splitType="Stretch">
 			<staticText>
-				<reportElement x="360" y="20" width="100" height="16" uuid="86b65230-928b-45fc-a489-86c52ce96f87"/>
+				<reportElement x="360" y="0" width="100" height="16" uuid="86b65230-928b-45fc-a489-86c52ce96f87"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Petugas]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="330" y="100" width="160" height="20" uuid="ab14c1e8-b409-4a10-a97e-a57d5a8aa0fb"/>
+				<reportElement x="330" y="103" width="160" height="17" uuid="8de636a0-b086-43c3-a679-a7084970bcba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NIP. " +$F{NIPPetugas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="330" y="120" width="160" height="20" uuid="8de636a0-b086-43c3-a679-a7084970bcba"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+				<reportElement x="360" y="90" width="100" height="13" uuid="a46f2b2d-f506-4b2b-b147-4d0f18f4967c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NamaPetugas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>
